@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - YouTubeApiProject</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/YouTubeApiProject.styles.css" asp-append-version="true" />
+    <style>
+        .youtube-player {
+            margin-top: 20px;
+            display: none; /* Initially hide the player */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark custom-red">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">YouTubeAPI</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="YouTube" asp-action="Index" style="background-color: red; color: white;">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-4 text-center">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+
+        <!-- YouTube Player at the Top -->
+        <div id="youtube-player" class="youtube-player text-center">
+            <iframe id="player" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div class="container mt-4">
+            <div class="row">
+                <!-- First Video -->
+                <div class="col-md-6 text-center">
+                    <img src="https://i.ytimg.com/vi/OUbh1rpQFPg/maxresdefault.jpg" alt="Rooster Fighter" width="400" height="400" class="img-fluid rounded shadow">
+                    <p class="mt-2">Rooster Fighter - Official Trailer.</p>
+                    <button onclick="loadVideo('OUbh1rpQFPg')" class="btn youtube-btn mt-2" style="background-color: red; color: white;">Watch</button>
+                </div>
+
+                <!-- Second Video -->
+                <div class="col-md-6 text-center">
+                    <img src="https://karihome.com.my/ckfinder/userfiles/images/Malaysia/susu-kambing.jpg" alt="Susu Kambing" width="300" height="400" class="img-fluid rounded shadow">
+                    <p class="mt-2">Khasiat Susu Kambing bagi Kesehatan Tubuh.</p>
+                    <button onclick="loadVideo('kH-NbEm1498')" class="btn youtube-btn mt-2" style="background-color: red; color: white;">Watch</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Third and Fourth Videos -->
+        <div class="container mt-4">
+            <div class="row">
+                <!-- Third Video -->
+                <div class="col-md-6 text-center">
+                    <img src="https://asset-2.tstatic.net/tribunnews/foto/bank/images/viral-lagu-kasih-sayang-pada-orang-tua-liriknya-unik-mawang-ungkap-makna-sesungguhnya.jpg" alt="MAW & WANG" width="400" height="400" class="img-fluid rounded shadow">
+                    <p class="mt-2">MAW & WANG - KASIH SAYANG KEPADA ORANG TUA(LIVE).</p>
+                    <button onclick="loadVideo('_l13E-Yb6NM')" class="btn youtube-btn mt-2" style="background-color: red; color: white;">Watch</button>
+                </div>
+
+                <!-- Fourth Video -->
+                <div class="col-md-6 text-center">
+                    <img src="https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2018/12/1109-Larry-Wheels-Deadlift.jpg?quality=86&strip=all5" alt="Korean Bodybuilder" width="400" height="400" class="img-fluid rounded shadow">
+                    <p class="mt-2">Korea's Biggest and Most Famous Bodybuilder Chul Soon.</p>
+                    <button onclick="loadVideo('0cnZTBXeQmU')" class="btn youtube-btn mt-2" style="background-color: red; color: white;">Watch</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        // Function to load YouTube video
+        function loadVideo(videoId) {
+            var player = document.getElementById('player');
+            var playerContainer = document.getElementById('youtube-player');
+            player.src = "https://www.youtube.com/embed/" + videoId;
+            playerContainer.style.display = 'block'; // Show the player
+        }
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

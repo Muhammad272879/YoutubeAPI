@@ -1,0 +1,53 @@
+﻿<div class="container mt-5">
+    <!-- Search Bar -->
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-8">
+            <form method="get" asp-action="Search">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="query" placeholder="Search YouTube videos..." required />
+                    <button class="btn btn-danger" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Video Results -->
+    <div class="row">
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var video in Model)
+            {
+                <div class="col-md-12 mb-4">
+                    <div class="card">
+                        <div class="row g-0">
+                            <!-- Thumbnail -->
+                            <div class="col-md-4">
+                                <a href="@video.VideoUrl" target="_blank">
+                                    <img src="@video.ThumbnailUrl" class="img-fluid rounded-start" alt="@video.Title" />
+                                </a>
+                            </div>
+                            <!-- Video Title and Description -->
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <a href="@video.VideoUrl" target="_blank" class="text-decoration-none text-dark">
+                                            @video.Title
+                                        </a>
+                                    </h5>
+                                    <p class="card-text text-muted">@video.Description</p>
+                                    <a href="@video.VideoUrl" target="_blank" class="btn btn-danger">Watch on YouTube</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-md-12 text-center">
+                <h1>For Your Page</h1>
+            </div>
+        }
+    </div>
+</div> 

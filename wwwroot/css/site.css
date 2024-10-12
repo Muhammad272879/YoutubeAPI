@@ -1,0 +1,55 @@
+html, body {
+    height: 100%; /* Ensures that both html and body take up full height */
+    margin: 0; /* Removes default margin */
+}
+
+body {
+    background-image: url('https://w0.peakpx.com/wallpaper/198/526/HD-wallpaper-youtube-red-logo-red-neon-lights-social-network-creative-red-abstract-background-youtube-logo-youtube.jpg');
+    background-size: cover; /* Ensures the image covers the entire background */
+
+    background-position: center; /* Centers the image */
+}
+
+/* Navbar */
+.navbar {
+    background-color: rgba(255, 0, 0, 0.8); /* Red color with slight transparency */
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Main container */
+.container {
+    background-color: rgba(248, 249, 250, 0.9); /* Light background with transparency */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Buttons and Links */
+.btn-primary {
+    background-color: #ff0000; /* Red color */
+    border-color: #ff0000; /* Red border */
+}
+
+    .btn-primary:hover {
+        background-color: #cc0000; /* Darker red on hover */
+        border-color: #cc0000; /* Darker red border on hover */
+    }
+
+/* Custom Red Background for Navbar */
+.custom-red {
+    background-color: #FF0000; /* YouTube Red */
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+    /* Ensure the links are white on hover */
+    .nav-link:hover {
+        color: #f8f9fa;
+    }
